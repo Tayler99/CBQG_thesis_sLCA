@@ -20,11 +20,10 @@ foods_names = ['Olive Oil', 'Orange Juice', 'Apple Juice', 'Grape Juice', 'Other
                'Corn', 'Fresh Tomatoes', 'Summer Squash', 'Winter Squash', 'Other Fish', 'Soups', 'Corn Oil', 'Canola/rapeseed Oil', 'Other Oil']
 foods_names = [foods_names[i] for i in [1,2,3,4,5,99,100,112,8,113,6,7,9,10,11,12,13,14,15,16,18,19,20,21,22,23,24,25,26,27,115,116,117,118,119,120,121,122,123,28,29,30,31,32,33,34,103,35,36,37,38,39,40,41,42,44,45,46,47,48,49,105,50,51,52,106,114,101,102,17,104,43,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,124,73,110,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,111,92,93,94,95,96,97,98,107,108,109,125,126,127,128,0]]
 tab[''] = foods_names
-tab['N'] = np.nan; tab['None'] = np.nan; tab['Monthly'] = np.nan; tab['Weekly'] = np.nan; tab['Daily'] = np.nan; tab['Daily+'] = np.nan; tab['Mode'] = np.nan
+tab['None'] = np.nan; tab['Monthly'] = np.nan; tab['Weekly'] = np.nan; tab['Daily'] = np.nan; tab['Daily+'] = np.nan; tab['Mode'] = np.nan
 for i in range(len(food.columns)):
     col = food[food.columns[i]]
     N = int(sum(np.isnan(col) == False))
-    tab['N'][i] = N
     d = int(np.max(col))
     lis = []
     for j in range(d):
@@ -32,6 +31,6 @@ for i in range(len(food.columns)):
         lis.append(n)
         p = int(round((n/N)*100, 0))
         tab.iat[i, j + 2] = str(p) + '%'
-    tab.iat[i, 7] = lis.index(max(lis))
+    tab.iat[i, 6] = lis.index(max(lis))
 
-tab.to_csv("s_table_02.csv")
+tab.to_csv("s_table_01.csv")
