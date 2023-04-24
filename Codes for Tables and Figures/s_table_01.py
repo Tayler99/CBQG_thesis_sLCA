@@ -30,7 +30,7 @@ for i in range(len(food.columns)):
         n = np.sum(col == j + 1)
         lis.append(n)
         p = int(round((n/N)*100, 0))
-        tab.iat[i, j + 2] = str(p) + '%'
+        tab.iat[i, j + 1] = str(p) + '%'
     tab.iat[i, 6] = lis.index(max(lis))
 
 tab.to_csv("s_table_01.csv")
